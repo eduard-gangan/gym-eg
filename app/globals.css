@@ -2,32 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.clip-tl {
+	clip-path: polygon(100% 100%, 10% 100%, 0% 0%, 100% 0%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.clip-bl {
+	clip-path: polygon(100% 100%, 0% 100%, 10% 0%, 100% 0%);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.clip-tr {
+	clip-path: polygon(90% 100%, 0% 100%, 0% 0%, 100% 0%);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.clip-br {
+	clip-path: polygon(100% 100%, 0% 100%, 0% 0%, 90% 0%);
+}
+
+.clip-yl {
+	clip-path: polygon(100% 100%, 10% 100%, 0% 0%, 90% 0%);
+}
+
+.clip-yr {
+	clip-path: polygon(90% 100%, 0% 100%, 10% 0%, 100% 0%);
+}
+
+.bg-radial {
+	background-image: radial-gradient(circle at 50% 15%, #dc2626 -40%, #18181b);
 }
