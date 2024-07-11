@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Nav = () => {
 	return (
-		<nav className="fixed top-0 w-screen h-16 z-30 flex items-center px-6 lg:px-12 bg-gradient-to-b from-zinc-950 to-zinc-950/0 backdrop-blur-sm">
+		<nav className="fixed top-0 w-screen h-20 z-30 flex items-center px-6 lg:px-12 bg-gradient-to-b from-zinc-950 to-zinc-950/0 backdrop-blur-sm">
 			<Link href="/">
 				<Image
 					src="/logo.svg"
@@ -14,11 +14,11 @@ const Nav = () => {
 			</Link>
 			<Link
 				href="tel:+1-123-123-123"
-				className="ml-auto text-white"
+				className="ml-auto text-white max-sm:hidden"
 			>
 				+1-123-123-123
 			</Link>
-			<button className="ml-8">
+			<button className="ml-8 max-sm:ml-auto">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="48"
