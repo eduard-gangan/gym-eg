@@ -50,6 +50,7 @@ export default function Home() {
 						src="/assets/gym.webp"
 						quality={100}
 						className="object-cover clip-tl"
+						priority="true"
 					/>
 				</div>
 			</div>
