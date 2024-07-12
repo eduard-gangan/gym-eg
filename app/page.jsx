@@ -1,17 +1,75 @@
+"use client";
+
 import Nav from "@/components/Nav";
 import Image from "next/image";
 import MainBtn from "@/components/MainBtn";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/src/ScrollTrigger";
 
 export default function Home() {
+	const main = useRef();
+
+	useGSAP(
+		() => {
+			gsap.registerPlugin(ScrollTrigger);
+			const mm = gsap.matchMedia();
+			mm.add("(min-width: 1024px)", () => {
+				gsap.from("#image1", {
+					y: 300,
+					scrollTrigger: {
+						scrub: true,
+						trigger: "#section1",
+						start: "top bottom",
+						end: "bottom top",
+						// markers: "true",
+					},
+				});
+
+				gsap.from("#image2", {
+					y: 300,
+					scrollTrigger: {
+						scrub: true,
+						trigger: "#section2",
+						start: "top bottom",
+						end: "bottom top",
+						// markers: "true",
+					},
+				});
+
+				gsap.from("#image3", {
+					y: 300,
+					scrollTrigger: {
+						scrub: true,
+						trigger: "#section3",
+						start: "top bottom",
+						end: "bottom top",
+						// markers: "true",
+					},
+				});
+			});
+		},
+		{ scope: main }
+	);
+
 	return (
-		<main className="bg-zinc-900 bg-[url('/assets/brick.svg')] min-h-screen">
+		<main
+			ref={main}
+			className="bg-zinc-900 bg-[url('/assets/brick.svg')] min-h-screen"
+		>
 			<Nav />
 			<div className="bg-[radial-gradient(circle_at_50%_50%,transparent_30%,#18181b)] grid max-lg:grid-rows-2 max-lg:pt-32 lg:grid-cols-2 w-screen lg:min-h-screen">
 				<div className="w-full grid gap-3 lg:gap-4 place content-center px-6 lg:px-12 2xl:px-24">
 					<h1 className="2xl:text-6xl sm:text-5xl text-4xl text-zinc-200 font-bold">
-						Awesome header for this site
+						<div className="bg-gradient-to-b from-zinc-50 to-zinc-400 !leading-tight bg-clip-text text-transparent whitespace-nowrap">
+							Get your dream body
+						</div>
+						<div className="bg-gradient-to-b from-zinc-50 to-zinc-400 bg-clip-text text-transparent">
+							in 3 months
+						</div>
 					</h1>
-					<p className="2xl:text-2xl  sm:text-xl text-lg text-zinc-300">
+					<p className="2xl:text-2xl  sm:text-xl text-lg text-zinc-400">
 						Short description of this gym, their mission maybe, the services
 						they provide
 					</p>
@@ -57,9 +115,15 @@ export default function Home() {
 
 			{/* Section 2 */}
 
-			<div className="bg-[radial-gradient(circle_at_50%_50%,transparent_30%,#18181b)] min-h-screen grid lg:grid-cols-2 place-content-center items-center gap-16 pt-32 pb-16 relative px-6">
+			<div
+				id="section1"
+				className="bg-[radial-gradient(circle_at_50%_50%,transparent_30%,#18181b)] min-h-screen grid lg:grid-cols-2 place-content-center items-center gap-16 pt-32 pb-16 relative px-6"
+			>
 				{/* <div className="absolute right-0 top-0 bg-zinc-800 clip-bl w-1/2 h-full z-0" /> */}
-				<div className="w-full max-w-128 aspect-square lg:aspect-[2/3] justify-self-end max-lg:order-2 relative">
+				<div
+					id="image1"
+					className="w-full max-w-128 aspect-square lg:aspect-[2/3] justify-self-end max-lg:order-2 relative"
+				>
 					<div className="absolute w-full h-full bg-gradient-to-bl from-red-700/80 via-red-500/80 to-red-700/80 -bottom-4 -left-4 max-sm:-bottom-2 max-sm:-left-2 clip-yl"></div>
 					<Image
 						src="/assets/gym1.webp"
@@ -70,8 +134,13 @@ export default function Home() {
 					/>
 				</div>
 				<div className="grid gap-6 z-10 lg:pr-12">
-					<h2 className="text-zinc-200 lg:text-5xl text-4xl font-bold">
-						Cool benefit of this gym
+					<h2 className="lg:text-5xl text-4xl text-zinc-200 font-bold">
+						<div className="bg-gradient-to-b from-zinc-50 to-zinc-400 !leading-tight bg-clip-text text-transparent whitespace-nowrap">
+							Best-equipped gym
+						</div>
+						<div className="bg-gradient-to-b from-zinc-50 to-zinc-400 bg-clip-text text-transparent">
+							in town
+						</div>
 					</h2>
 					<ul className="list-disc lg:text-2xl text-xl text-zinc-300 px-6 sm:px-8 grid gap-3">
 						<li>Cool point in favor of header</li>
@@ -87,10 +156,18 @@ export default function Home() {
 
 			{/* Section 3 */}
 
-			<div className="bg-[radial-gradient(circle_at_50%_50%,transparent_30%,#18181b)] min-h-screen grid lg:grid-cols-2 place-content-center items-center gap-16 pt-16 px-6 py-16">
+			<div
+				id="section2"
+				className="bg-[radial-gradient(circle_at_50%_50%,transparent_30%,#18181b)] min-h-screen grid lg:grid-cols-2 place-content-center items-center gap-16 pt-16 px-6 py-16"
+			>
 				<div className="grid gap-6 z-10 lg:pl-12 2xl:pl-24">
-					<h2 className="text-zinc-200 lg:text-5xl text-4xl font-bold">
-						Cool benefit of this gym
+					<h2 className="lg:text-5xl text-4xl text-zinc-200 font-bold">
+						<div className="bg-gradient-to-b from-zinc-50 to-zinc-400 !leading-tight bg-clip-text text-transparent whitespace-nowrap">
+							Best-equipped gym
+						</div>
+						<div className="bg-gradient-to-b from-zinc-50 to-zinc-400 bg-clip-text text-transparent">
+							in town
+						</div>
 					</h2>
 					<ul className="list-disc lg:text-2xl text-xl text-zinc-300 px-6 sm:px-8 grid gap-3">
 						<li>Cool point in favor of header</li>
@@ -102,7 +179,10 @@ export default function Home() {
 						href="/"
 					/>
 				</div>
-				<div className="w-full max-w-128 aspect-square lg:aspect-[2/3] relative">
+				<div
+					id="image2"
+					className="w-full max-w-128 aspect-square lg:aspect-[2/3] relative"
+				>
 					<div className="absolute w-full h-full bg-gradient-to-bl from-red-700/80 via-red-500/80 to-red-700/80 -bottom-4 -left-4 max-sm:-bottom-2 max-sm:-left-2 clip-yl"></div>
 					<Image
 						src="/assets/gym2.webp"
@@ -116,8 +196,14 @@ export default function Home() {
 
 			{/* Section 4 */}
 
-			<div className="bg-[radial-gradient(circle_at_50%_50%,transparent_30%,#18181b)] min-h-screen grid lg:grid-cols-2 place-content-center items-center gap-16 pt-16 px-6 py-16">
-				<div className="w-full max-w-128 aspect-square lg:aspect-[2/3] justify-self-end max-lg:order-2 relative">
+			<div
+				id="section3"
+				className="bg-[radial-gradient(circle_at_50%_50%,transparent_30%,#18181b)] min-h-screen grid lg:grid-cols-2 place-content-center items-center gap-16 pt-16 px-6 py-16"
+			>
+				<div
+					id="image3"
+					className="w-full max-w-128 aspect-square lg:aspect-[2/3] justify-self-end max-lg:order-2 relative"
+				>
 					<div className="absolute w-full h-full bg-gradient-to-bl from-red-700/80 via-red-500/80 to-red-700/80 -bottom-4 -left-4 max-sm:-bottom-2 max-sm:-left-2 clip-yl"></div>
 					<Image
 						src="/assets/gym3.webp"
@@ -128,8 +214,13 @@ export default function Home() {
 					/>
 				</div>
 				<div className="grid gap-6 z-10 lg:pr-12">
-					<h2 className="text-zinc-200 lg:text-5xl text-4xl font-bold">
-						Cool benefit of this gym
+					<h2 className="lg:text-5xl text-4xl text-zinc-200 font-bold">
+						<div className="bg-gradient-to-b from-zinc-50 to-zinc-400 !leading-tight bg-clip-text text-transparent whitespace-nowrap">
+							Best-equipped gym
+						</div>
+						<div className="bg-gradient-to-b from-zinc-50 to-zinc-400 bg-clip-text text-transparent">
+							in town
+						</div>
 					</h2>
 					<ul className="list-disc lg:text-2xl text-xl text-zinc-300 px-6 sm:px-8 grid gap-3">
 						<li>Cool point in favor of header</li>
