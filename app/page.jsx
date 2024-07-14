@@ -105,7 +105,7 @@ export default function Home() {
 				stagger: 0.3,
 				scrollTrigger: {
 					trigger: "#section4",
-					start: "40% bottom",
+					start: "20% bottom",
 					// markers: true,
 				},
 			});
@@ -118,7 +118,7 @@ export default function Home() {
 				stagger: 0.3,
 				scrollTrigger: {
 					trigger: "#section5",
-					start: "40% bottom",
+					start: "30% bottom",
 					// markers: true,
 				},
 			});
