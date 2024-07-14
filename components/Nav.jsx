@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Nav = () => {
 	return (
-		<nav className="fixed top-0 w-screen h-20 z-30 flex items-center px-6 lg:px-12 bg-gradient-to-b from-zinc-950 to-zinc-950/0 backdrop-blur-sm">
+		<nav className="fixed top-0 w-screen h-20 z-30 flex items-center px-6 lg:px-12 2xl:px-24 bg-gradient-to-b from-zinc-950 to-zinc-950/0 backdrop-blur-sm">
 			<Link href="/">
 				<Image
 					src="/logo.svg"

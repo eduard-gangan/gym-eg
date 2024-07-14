@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+::selection {
+	@apply bg-rose-900;
+}
+
+html {
+	scrollbar-color: #dc2626 #18181b;
+}
+
+@layer components {
+	::-webkit-scrollbar {
+		@apply w-2;
+	}
+	::-webkit-scrollbar-track {
+		@apply bg-zinc-900;
+	}
+	::-webkit-scrollbar-thumb {
+		@apply w-2 hover:bg-red-500 rounded-full bg-red-600;
+	}
+}
+
 @media (min-width: 1024px) {
 	.clip-tl {
 		clip-path: polygon(100% 100%, 10% 100%, 0% 0%, 100% 0%);
